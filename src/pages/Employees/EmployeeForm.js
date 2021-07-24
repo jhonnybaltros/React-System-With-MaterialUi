@@ -2,9 +2,9 @@ import { Grid, makeStyles, TextField } from '@material-ui/core';
 import React, {useState, useEffect} from 'react'
 
 const useStyle = makeStyles(theme =>({
-    root:{
-        '& .MuiFormControl-root':{
-            width: '80%',
+    root: {
+        '& .MuiFormControl-root': {
+            width: '100%',
             margin: theme.spacing(1)
         }
     }
@@ -28,7 +28,7 @@ export default function EmployeeForm() {
    const classes = useStyle();
     
     return (
-        <form className='classes.root'>
+        <form className={classes.root}>
           <Grid container>
                 <Grid item xs={6}>
                     <TextField 

@@ -7,11 +7,10 @@ export default function Employees() {
     return (
         <>
         <PageHeader
-      title="New Employee"
-      subtitle="Form design with validation"
-      icon = {<PeopleOutlineTwoToneIcon fontSize="large" />}
-      />
-        
+          title="New Employee"
+          subtitle="Form design with validation"
+          icon = {<PeopleOutlineTwoToneIcon fontSize="large" />}
+          />   
         <EmployeeForm />
         </>
     )
