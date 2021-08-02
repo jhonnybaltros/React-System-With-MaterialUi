@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 const useStyle = makeStyles(theme =>({
     root: {
         '& .MuiFormControl-root': {
-            width: '100%',
+            width: '80%',
             margin: theme.spacing(1)
         }
     }
