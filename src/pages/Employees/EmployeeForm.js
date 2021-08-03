@@ -1,14 +1,14 @@
-import { Grid, makeStyles, TextField } from '@material-ui/core';
+import { FormControl, 
+        FormControlLabel, 
+        FormLabel, 
+        Grid, 
+        makeStyles, 
+        RadioGroup, 
+        TextField, Radio } from '@material-ui/core';
 import React, {useState, useEffect} from 'react'
+import {useForm, Form} from '../../Components/useForm';
 
-const useStyle = makeStyles(theme =>({
-    root: {
-        '& .MuiFormControl-root': {
-            width: '80%',
-            margin: theme.spacing(1)
-        }
-    }
-}))
+
 
 const initialFValues ={
     id :0,
@@ -24,31 +24,50 @@ const initialFValues ={
 
 export default function EmployeeForm() {
    
-   const [values, setValues] = useState(initialFValues);
-   const classes = useStyle();
+   
+
+   const{
+    values, 
+    setValues,
+    handleInputChange
+   } =useForm(initialFValues);
+
     
     return (
-        <form className={classes.root}>
-          <Grid container>
+        
+          <Form>  
+          <Grid container >
                 <Grid item xs={6}>
                     <TextField 
                     variant="outlined"
                     label="Full Name"
+                    name="fullName"
                     value={values.fullName}
+                    onChange= {handleInputChange}
                     />
-                </Grid>
-                <Grid item xs={6}>
                     <TextField 
                     variant="outlined"
                     label="Email"
+                    name="email"
                     value={values.email}
+                    onChange= {handleInputChange}
                     />
                 </Grid>
                 <Grid item xs={6}>
-
+                   <FormControl>
+                       <FormLabel>Gender</FormLabel>
+                        <RadioGroup row={true}
+                        name="gender"
+                        value={values.gender}
+                        onChange={handleInputChange}>
+                            <FormControlLabel value="male" control={<Radio/>} label="male" />
+                            <FormControlLabel value="female" control={<Radio/>} label="female" />
+                            <FormControlLabel value="other" control={<Radio/>} label="other" />
+                        </RadioGroup> 
+                   </FormControl>
                 </Grid>
           
-          </Grid>  
-        </form>
+          </Grid> 
+          </Form> 
     )
 }
