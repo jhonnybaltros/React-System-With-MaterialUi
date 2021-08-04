@@ -6,9 +6,14 @@ import { FormControl,
         RadioGroup, 
         TextField, Radio } from '@material-ui/core';
 import React, {useState, useEffect} from 'react'
+import Controls from '../../Components/controls/Controls';
 import {useForm, Form} from '../../Components/useForm';
 
-
+const genderItems = [
+    {id:'male', title:'Male'},
+    {id:'female', title:'female'},
+    {id:'other', title:'Other'}
+]
 
 const initialFValues ={
     id :0,
@@ -24,8 +29,6 @@ const initialFValues ={
 
 export default function EmployeeForm() {
    
-   
-
    const{
     values, 
     setValues,
@@ -38,35 +41,28 @@ export default function EmployeeForm() {
           <Form>  
           <Grid container >
                 <Grid item xs={6}>
-                    <TextField 
-                    variant="outlined"
-                    label="Full Name"
+                    <Controls.Input 
                     name="fullName"
+                    label="Full Name"
                     value={values.fullName}
-                    onChange= {handleInputChange}
+                    onChange={handleInputChange}
                     />
-                    <TextField 
-                    variant="outlined"
-                    label="Email"
+                    <Controls.Input
                     name="email"
+                    label="Email"
                     value={values.email}
                     onChange= {handleInputChange}
                     />
                 </Grid>
                 <Grid item xs={6}>
-                   <FormControl>
-                       <FormLabel>Gender</FormLabel>
-                        <RadioGroup row={true}
-                        name="gender"
-                        value={values.gender}
-                        onChange={handleInputChange}>
-                            <FormControlLabel value="male" control={<Radio/>} label="male" />
-                            <FormControlLabel value="female" control={<Radio/>} label="female" />
-                            <FormControlLabel value="other" control={<Radio/>} label="other" />
-                        </RadioGroup> 
-                   </FormControl>
+
+                   <Controls.RadioGroup 
+                   name="gender"
+                   value={values.gender}
+                   onChange={handleInputChange}
+                   items={genderItems}
+                   />
                 </Grid>
-          
           </Grid> 
           </Form> 
     )
