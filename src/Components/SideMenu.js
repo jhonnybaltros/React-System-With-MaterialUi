@@ -9,7 +9,7 @@ const style = {
         flexDirection:'colum',
         position: 'absolute',
         left: '0px',
-        width: '320px',
+        width: '120px',
         height: '100%',
         backgroundColor: '#253053' 
     }
